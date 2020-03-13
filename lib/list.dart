@@ -55,7 +55,7 @@ class DataList extends StatelessWidget {
                                 // set some style to text
                                 style: new TextStyle(
                                     fontSize: 12.0, color: Colors.black87, fontStyle: FontStyle.italic),
-                              ),
+                              ), //
                             ],
                           ),
                         ),
