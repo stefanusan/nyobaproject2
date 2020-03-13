@@ -25,8 +25,7 @@ class MyApp extends StatelessWidget {
         '/settingPage': (context) => SettingPage(),
         '/historyPage': (context) => HistoryPage(),
 
-//        '/historyPage': (context) => HistoryPage(),
-//        '/historyPage': (context) => HistoryPage(),
+        //tambah.dart gak dipake
       },
     );
   }

@@ -36,7 +36,7 @@ class DataList extends StatelessWidget {
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
                               new Text(
-                                "Judul: " + country[index].judul,
+                                country[index].judul,
                                 // set some style to text
                                 style: new TextStyle(
                                     fontSize: 30.0,
@@ -47,15 +47,15 @@ class DataList extends StatelessWidget {
                                 "Ayat: " + country[index].ayat,
                                 // set some style to text
                                 style: new TextStyle(
-                                    fontSize: 20.0,
+                                    fontSize: 24.0,
                                     color: Colors.black87),
                               ),
                               new Text(
                                 "Description: " + country[index].description,
                                 // set some style to text
                                 style: new TextStyle(
-                                    fontSize: 12.0, color: Colors.black87, fontStyle: FontStyle.italic),
-                              ), //
+                                    fontSize: 18.0, color: Colors.black87, fontStyle: FontStyle.italic),
+                              ),
                             ],
                           ),
                         ),
