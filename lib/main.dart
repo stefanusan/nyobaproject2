@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:nyobaproject2/homescreen.dart';
+import 'package:nyobaproject2/tambahscreen.dart';
 import 'package:nyobaproject2/renungan.dart';
 import 'home.dart';
 import 'tambah.dart';
@@ -21,7 +21,7 @@ class MyApp extends StatelessWidget {
       routes: <String, WidgetBuilder>{
         '/': (context) => HomePage(),
         '/renunganPage': (context) => RenunganPage(),
-        '/tambahPage': (context) => HomePage2(),
+        '/tambahPage': (context) => AddPage(),
         '/settingPage': (context) => SettingPage(),
         '/historyPage': (context) => HistoryPage(),
 

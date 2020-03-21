@@ -8,7 +8,7 @@ class AddDataDialog {
   final teJudul = TextEditingController();
   final teAyat = TextEditingController();
   final teDescription = TextEditingController();
-  Datas data;
+  Datas2 data;
 
   static const TextStyle linkStyle = const TextStyle(
     color: Colors.blue,
@@ -16,7 +16,7 @@ class AddDataDialog {
   );
 
   Widget buildAboutDialog(
-      BuildContext context, _myHomePageState, bool isEdit, Datas data) {
+      BuildContext context, _myHomePageState, bool isEdit, Datas2 data) {
     if (data != null) {
       this.data=data;
       teJudul.text = data.judul;
@@ -91,7 +91,7 @@ class AddDataDialog {
 
   Future addRecord(bool isEdit) async {
     var db = new DatabaseHelper();
-    var data = new Datas(teJudul.text, teAyat.text, teDescription.text);
+    var data = new Datas2(teJudul.text, teAyat.text, teDescription.text);
     if (isEdit) {
       data.setDataId(this.data.id);
       await db.update(data);

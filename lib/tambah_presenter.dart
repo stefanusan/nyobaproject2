@@ -17,19 +17,18 @@ class HomePresenter {
   HomePresenter(this._view);
 
 
-  delete(Datas data) {
+  delete(Datas2 data) {
     var db = new DatabaseHelper();
     db.deleteData(data);
     updateScreen();
   }
 
-  Future<List<Datas>> getUser() {
+  Future<List<Datas2>> getDatas() {
     return db.getData();
   }
 
   updateScreen() {
     _view.screenUpdate();
-
   }
 
 

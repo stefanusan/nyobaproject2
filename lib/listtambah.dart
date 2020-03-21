@@ -2,14 +2,14 @@ import 'package:flutter/foundation.dart';
 import 'package:flutter/material.dart';
 import 'tambahdetail.dart';
 import 'data.dart';
-import 'home_presenter.dart';
+import 'tambah_presenter.dart';
 
 class DataList extends StatelessWidget {
-  List<Datas> country;
+  List<Datas2> country;
   HomePresenter homePresenter;
 
   DataList(
-    List<Datas> this.country,
+    List<Datas2> this.country,
     HomePresenter this.homePresenter, {
     Key key,
   }) : super(key: key);
@@ -35,6 +35,14 @@ class DataList extends StatelessWidget {
                           child: new Column(
                             crossAxisAlignment: CrossAxisAlignment.start,
                             children: <Widget>[
+//                              new Text(
+//                                index.toString(),
+//                                // set some style to text
+//                                style: new TextStyle(
+//                                    fontSize: 30.0,
+//                                    color: Colors.black,
+//                                    fontWeight: FontWeight.bold),
+//                              ),
                               new Text(
                                 country[index].judul,
                                 // set some style to text
@@ -44,17 +52,17 @@ class DataList extends StatelessWidget {
                                     fontWeight: FontWeight.bold),
                               ),
                               new Text(
-                                "Ayat: " + country[index].ayat,
+                                country[index].ayat,
                                 // set some style to text
                                 style: new TextStyle(
                                     fontSize: 24.0,
-                                    color: Colors.black87),
+                                    color: Colors.black87, fontStyle: FontStyle.italic),
                               ),
                               new Text(
-                                "Description: " + country[index].description,
+                                "' "+ country[index].description + " '",
                                 // set some style to text
                                 style: new TextStyle(
-                                    fontSize: 18.0, color: Colors.black87, fontStyle: FontStyle.italic),
+                                    fontSize: 18.0, color: Colors.black87),
                               ),
                             ],
                           ),
@@ -90,7 +98,7 @@ class DataList extends StatelessWidget {
   displayRecord() {
     homePresenter.updateScreen();
   }
-  edit(Datas data, BuildContext context) {
+  edit(Datas2 data, BuildContext context) {
     showDialog(
       context: context,
       builder: (BuildContext context) =>
@@ -99,7 +107,7 @@ class DataList extends StatelessWidget {
     homePresenter.updateScreen();
   }
 
-  String getShortName(Datas data) {
+  String getShortName(Datas2 data) {
     String shortName = "";
     if (!data.judul.isEmpty) {
       shortName = data.judul.substring(0, 1) + ".";

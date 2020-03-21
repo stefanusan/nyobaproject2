@@ -15,7 +15,7 @@ class _HistoryPageState extends State<HistoryPage> {
         title: Text('Riwayat'),
       ),
       body: Container(
-        child: Center(),
+
       ),
     );
   }

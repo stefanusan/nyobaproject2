@@ -31,30 +31,31 @@ class DatabaseHelper {
   void _onCreate(Database db, int version) async {
     // When creating the db, create the table
     await db.execute(
-        "CREATE TABLE Data(id INTEGER PRIMARY KEY, judul TEXT, ayat TEXT, description TEXT)");
+        "CREATE TABLE Data(id INT PRIMARY KEY DEFAULT=0, judul TEXT, ayat TEXT, description TEXT)");
   }
 
-  Future<int> saveData(Datas data) async {
+  Future<int> saveData(Datas2 data) async {
     var dbClient = await db;
     int res = await dbClient.insert("Data", data.toMap());
     return res;
   }
 
-  Future<List<Datas>> getData() async {
+  Future<List<Datas2>> getData() async {
     var dbClient = await db;
     List<Map> list = await dbClient.rawQuery('SELECT * FROM Data');
-    List<Datas> renungan = new List();
+    List<Datas2> renungan = new List();
     for (int i = 0; i < list.length; i++) {
       var data =
-      new Datas(list[i]["judul"], list[i]["ayat"], list[i]["description"]);
+      new Datas2(list[i]["judul"], list[i]["ayat"], list[i]["description"]);
       data.setDataId(list[i]["id"]);
       renungan.add(data);
+      print("index: "+ list[i]["id"].toString());
     }
     print(renungan.length);
     return renungan;
   }
 
-  Future<int> deleteData(Datas data) async {
+  Future<int> deleteData(Datas2 data) async {
     var dbClient = await db;
 
     int res =
@@ -62,7 +63,7 @@ class DatabaseHelper {
     return res;
   }
 
-  Future<bool> update(Datas data) async {
+  Future<bool> update(Datas2 data) async {
     var dbClient = await db;
 
     int res =   await dbClient.update("Data", data.toMap(),
@@ -70,4 +71,22 @@ class DatabaseHelper {
 
     return res > 0 ? true : false;
   }
+
+  Future<List<Datas2>> getDataRenungan() async {
+    var dbClient = await db;
+    List<Map> list = await dbClient.rawQuery('SELECT * FROM Data WHERE id = ?', );
+    List<Datas2> renungan = new List();
+    for (int i = 0; i < list.length; i++) {
+      var data =
+      new Datas2(list[i]["judul"], list[i]["ayat"], list[i]["description"]);
+      data.setDataId(list[i]["id"]);
+      renungan.add(data);
+      print("index: "+ list[i]["id"].toString());
+    }
+    print(renungan.length);
+    return renungan;
+  }
+
+//  Future<int>
+
 }

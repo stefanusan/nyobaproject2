@@ -5,18 +5,18 @@ import 'package:flutter/material.dart';
 import 'tambahdetail.dart';
 import 'database_helper.dart';
 import 'data.dart';
-import 'home_presenter.dart';
-import 'list.dart';
+import 'tambah_presenter.dart';
+import 'listtambah.dart';
 
-class HomePage2 extends StatefulWidget {
-  HomePage2({Key key, this.title}) : super(key: key);
+class AddPage extends StatefulWidget {
+  AddPage({Key key, this.title}) : super(key: key);
   final String title;
 
   @override
-  _HomePage2State createState() => new _HomePage2State();
+  _AddPageState createState() => new _AddPageState();
 }
 
-class _HomePage2State extends State<HomePage2> implements HomeContract {
+class _AddPageState extends State<AddPage> implements HomeContract {
   HomePresenter homePresenter;
 
   @override
@@ -43,7 +43,7 @@ class _HomePage2State extends State<HomePage2> implements HomeContract {
             new Text('Tambah Renungan',
               style: new TextStyle(
                 fontWeight: FontWeight.bold,
-                color: Colors.white,
+                color: Colors.black,
               ),
             ),
           ],
@@ -81,8 +81,8 @@ class _HomePage2State extends State<HomePage2> implements HomeContract {
         title: _buildTitle(context),
         actions: _buildActions(),
       ),
-      body: new FutureBuilder<List<Datas>>(
-        future: homePresenter.getUser(),
+      body: new FutureBuilder<List<Datas2>>(
+        future: homePresenter.getDatas(),
         builder: (context, snapshot) {
           if (snapshot.hasError) print(snapshot.error);
           var data = snapshot.data;
